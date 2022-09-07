@@ -1,0 +1,140 @@
+<div class="container-base">
+  <div class="title col-12 md:col-12 lg:col-12">
+    Actualización de empleado
+  </div>
+  <div class="grid container-form">
+    <div class="col-12 grid container-datos-principales">
+      <div class="col-12 md:col-3 lg:col-3">
+        <div class="grid">
+          <div class="col-3">
+            <label>Cédula:</label>
+          </div>
+          <div class="col-9">
+            <label >000000000</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 md:col-5 lg:col-5">
+        <div class="grid">
+          <div class="col-3">
+            <label>Empleado:</label>
+          </div>
+          <div class="col-9">
+            <label >Nombre Apellido</label>
+          </div>
+        </div>
+      </div>
+      <div class="col-12 md:col-4 lg:col-4">
+        <div class="grid">
+          <div class="col-3">
+            <label>Correo:</label>
+          </div>
+          <div class="col-9">
+            <label>nombre@gmail.com</label>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div class="col-12 md:col-6 lg:col-6">
+      <div class="grid">
+        <div class="col-12 label">
+          <label>Fecha de nacimiento:</label>
+        </div>
+        <div class="col-12">
+          <p-calendar  [style]="{'minWidth':'100%'}" inputId="icon" placeholder="Ingrese su fecha de nacimiento"></p-calendar>
+        </div>
+      </div>
+
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+      <div class="grid">
+        <div class="col-12 label">
+          <label for="address">Dirección de domicilio:</label>
+        </div>
+        <div class="col-12">
+          <input id="address" type="text" pInputText placeholder="Ingrese su dirección de domicilio">
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+      <div class="grid">
+        <div class="col-12 label">
+          <label for="numberPhone">Teléfono móvil:</label>
+        </div>
+        <div class="col-12">
+          <input id="numberPhone" type="text" pInputText placeholder="Ingrese su número de teléfono móvil">
+        </div>
+      </div>
+    </div>
+    <div class="col-12 md:col-6 lg:col-6">
+      <div class="grid">
+        <div class="col-12 label">
+          <label for="vaccination">Estado de vacunación:</label>
+        </div>
+        <div class="col-12">
+          <p-dropdown  [style]="{'minWidth':'100%'}" id="vaccination" [options]="status" [(ngModel)]="selectedStatus" optionLabel="name"  placeholder="Seleccione un estado..." [showClear]="true"></p-dropdown>
+        </div>
+      </div>
+    </div>
+
+    <div class="grid container-vaccination-data">
+      <div class="col-12 md:col-12 lg:col-12">
+        <p>Datos de vacunación</p>
+      </div>
+      <div class="col-12 md:col-6 lg:col-6">
+        <div class="grid">
+          <div class="col-4">
+            <label for="vaccination">Tipo de vacuna:</label>
+          </div>
+          <div class="col-8">
+            <p-dropdown [style]="{'minWidth':'100%'}"  id="" [options]="vaccinations" [(ngModel)]="selectedVaccinations" optionLabel="name"  placeholder="Seleccione un tipo..." [showClear]="true"></p-dropdown>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="col-4">
+            <label for="vaccination">Fecha de vacunación:</label>
+          </div>
+          <div class="col-8">
+            <p-calendar  [style]="{'minWidth':'100%'}" inputId="icon" placeholder="Ingrese su fecha de vacunación"></p-calendar>
+          </div>
+        </div>
+        <div class="grid">
+          <div class="col-4">
+            <label for="vaccination">Número de dosis:</label>
+          </div>
+          <div class="col-8">
+            <input id="nro" type="number" pInputText placeholder="Ingrese el número de dosis">
+          </div>
+        </div>
+      </div>
+      <div class="col-12 md:col-6 lg:col-6">
+        <p-table responsiveLayout="scroll">
+          <ng-template pTemplate="header">
+            <tr>
+              <th>Tipo de vacuna</th>
+              <th>Fecha de vacunación</th>
+              <th>Número de dosis</th>
+            </tr>
+          </ng-template>
+          <ng-template pTemplate="body">
+            <tr>
+              <td></td>
+              <td></td>
+              <td></td>
+            </tr>
+          </ng-template>
+        </p-table>
+      </div>
+    </div>
+
+    <div class="col-6 md:col-2 lg:col-2">
+      <button pButton pRipple type="button" label="Regresar" class="p-button-outlined p-button-warning"></button>
+    </div>
+    <div class="col-6 md:col-2 lg:col-2">
+      <button pButton pRipple type="button" label="Actualizar" class="p-button-raised p-button-warning"></button>
+    </div>
+  </div>
+
+</div>
+

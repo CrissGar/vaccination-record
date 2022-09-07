@@ -7,18 +7,32 @@ import { EmployeeRegistryComponent } from './employee-registry/employee-registry
 import {InputTextModule} from 'primeng/inputtext';
 import {ButtonModule} from 'primeng/button';
 import { NavbarComponent } from './navbar/navbar.component';
+import { EmployeeUpdateComponent } from './employee-update/employee-update.component';
+import {DropdownModule} from "primeng/dropdown";
+import {FormsModule} from "@angular/forms";
+import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import {RippleModule} from "primeng/ripple";
+import {TableModule} from "primeng/table";
+import {CalendarModule} from "primeng/calendar";
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeRegistryComponent,
-    NavbarComponent
+    NavbarComponent,
+    EmployeeUpdateComponent
   ],
   imports: [
     BrowserModule,
     AppRoutingModule,
     InputTextModule,
-    ButtonModule
+    ButtonModule,
+    DropdownModule,
+    FormsModule,
+    BrowserAnimationsModule,
+    RippleModule,
+    TableModule,
+    CalendarModule
 
   ],
   providers: [],
