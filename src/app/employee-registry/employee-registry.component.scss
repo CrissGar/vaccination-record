@@ -33,3 +33,16 @@ label{
   font-weight: bold;
 }
 
+input.ng-valid.ng-touched{
+  border: 1px solid #049ca4;
+}
+
+input.ng-invalid.ng-touched{
+  border: 1px solid red;
+}
+
+.error{
+  color: tomato;
+  font-size: 12px;
+}
+

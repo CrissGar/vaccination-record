@@ -3,6 +3,7 @@
     Registro de empleado
   </div>
 
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
   <div class="grid container-form">
     <div class="col-12 md:col-6 lg:col-6">
       <div class="grid">
@@ -10,7 +11,13 @@
           <label for="document">Cédula:</label>
         </div>
         <div class="col-12">
-          <input id="document" type="text" pInputText placeholder="Ingrese la cédula" ngModel required>
+          <input id="document" type="text" pInputText placeholder="Ingrese la cédula" formControlName="document">
+          <div *ngIf="form['document'].touched && form['document'].invalid" class="error">
+            <div *ngIf="form['document'].errors && form['document'].errors['required']"> Campo requerido</div>
+            <div *ngIf="form['document'].errors && form['document'].errors['minlength']">Por favor ingrese 10 dígitos</div>
+            <div *ngIf="form['document'].errors && form['document'].errors['maxlength']">Por favor ingrese 10 dígitos</div>
+            <div *ngIf="form['document'].errors && form['document'].errors['pattern']"> Por favor ingrese únicamente valores numéricos</div>
+          </div>
         </div>
       </div>
 
@@ -18,20 +25,29 @@
     <div class="col-12 md:col-6 lg:col-6">
       <div class="grid">
         <div class="col-12 label">
-          <label for="name">Nombres:</label>
+          <label for="names">Nombres:</label>
         </div>
         <div class="col-12">
-          <input id="name" type="text" pInputText placeholder="Ingrese los nombres">
+          <input id="names" type="text" pInputText placeholder="Ingrese los nombres" formControlName="names">
+          <div *ngIf="form['names'].touched && form['names'].invalid" class="error">
+            <div *ngIf="form['names'].errors && form['names'].errors['required']">Campo requerido</div>
+            <div *ngIf="form['names'].errors && form['names'].errors['pattern']">Por no ingrese números o caracteres especiales</div>
+          </div>
         </div>
       </div>
     </div>
     <div class="col-12 md:col-6 lg:col-6">
       <div class="grid">
         <div class="col-12 label">
-          <label for="lastname">Apellidos:</label>
+          <label for="lastnames">Apellidos:</label>
         </div>
         <div class="col-12">
-          <input id="lastname" type="text" pInputText placeholder="Ingrese los apellidos">
+          <input id="lastnames" type="text" pInputText placeholder="Ingrese los apellidos" formControlName="lastnames">
+          <div *ngIf="form['lastnames'].touched && form['lastnames'].invalid" class="error">
+            <div *ngIf="form['lastnames'].errors && form['lastnames'].errors['required']">Campo requerido</div>
+            <div *ngIf="form['lastnames'].errors && form['lastnames'].errors['pattern']">Por no ingrese números o caracteres especiales</div>
+
+          </div>
         </div>
       </div>
     </div>
@@ -41,15 +57,21 @@
           <label for="email">Correo electrónico:</label>
         </div>
         <div class="col-12">
-          <input id="email" type="text" pInputText placeholder="Ingrese el correo electrónico">
+          <input id="email" type="text" pInputText placeholder="Ingrese el correo electrónico" formControlName="email">
+          <div *ngIf="form['email'].touched && form['email'].invalid" class="error">
+            <div *ngIf="form['email'].errors && form['email'].errors['required']">Campo requerido</div>
+            <div *ngIf="form['email'].errors && form['email'].errors['pattern']">Por favor ingrese un email válido</div>
+          </div>
         </div>
       </div>
     </div>
+
     <div class="col-6 md:col-2 lg:col-2">
-      <button pButton pRipple type="button" label="Regresar" class="p-button-outlined p-button-warning"></button>
+      <button type="submit"  class="btn btn-outline-warning">Regresar</button>
     </div>
     <div class="col-6 md:col-2 lg:col-2">
-      <button pButton pRipple type="button" label="Registrar" class="p-button-raised p-button-warning"></button>
+      <button type="submit" class="btn btn-warning" [disabled]="!registrationForm.valid">Registrar</button>
     </div>
   </div>
+  </form>
 </div>
