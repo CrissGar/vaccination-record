@@ -34,15 +34,15 @@ label{
 }
 
 input.ng-valid.ng-touched{
-  border: 1px solid #049ca4;
+  border: 0.063rem solid #049ca4;
 }
 
 input.ng-invalid.ng-touched{
-  border: 1px solid red;
+  border: 0.063rem solid red;
 }
 
 .error{
   color: tomato;
-  font-size: 12px;
+  font-size: 0.75rem;
 }
 

@@ -3,7 +3,8 @@
     Registro de empleado
   </div>
 
-  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()" >
+
+  <form [formGroup]="registrationForm" (ngSubmit)="onSubmit()">
   <div class="grid container-form">
     <div class="col-12 md:col-6 lg:col-6">
       <div class="grid">
@@ -67,10 +68,10 @@
     </div>
 
     <div class="col-6 md:col-2 lg:col-2">
-      <button type="submit"  class="btn btn-outline-warning">Regresar</button>
+      <button class="btn btn-secondary" [routerLink]="['/list']">Regresar</button>
     </div>
     <div class="col-6 md:col-2 lg:col-2">
-      <button type="submit" class="btn btn-warning" [disabled]="!registrationForm.valid">Registrar</button>
+      <button type="submit" class="btn btn-warning" [disabled]="!registrationForm.valid" >Registrar</button>
     </div>
   </div>
   </form>

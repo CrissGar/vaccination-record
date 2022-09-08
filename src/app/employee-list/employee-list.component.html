@@ -1,0 +1,29 @@
+<div class="container-base">
+  <div class="container-button">
+    <button class="btn btn-info" [routerLink]="['/registry']">Nuevo Empleado</button>
+  </div>
+  <p-table [value]="employees"  responsiveLayout="scroll">
+    <ng-template pTemplate="header">
+      <tr>
+        <th>Cédula</th>
+        <th>Nombres</th>
+        <th>Apellidos</th>
+        <th>Correo electrónico</th>
+        <th></th>
+      </tr>
+    </ng-template>
+    <ng-template pTemplate="body" let-employee>
+      <tr>
+        <td>{{employee.document}}</td>
+        <td>{{employee.names}}</td>
+        <td>{{employee.lastnames}}</td>
+        <td>{{employee.email}}</td>
+        <td>
+          <button class="btn btn-success mx-3" (click)="updateEmployee(employee)" [routerLink]="['/updateEmployeeAdmin', employee.document]">Editar</button>
+
+          <button class="btn btn-danger" (click)="deleteEmployee(employee)">Eliminar</button>
+        </td>
+      </tr>
+    </ng-template>
+  </p-table>
+</div>

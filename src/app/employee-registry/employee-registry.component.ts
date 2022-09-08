@@ -1,5 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/forms";
+import {EmployeeService} from "../employee.service";
 
 @Component({
   selector: 'app-employee-registry',
@@ -9,7 +10,10 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 export class EmployeeRegistryComponent implements OnInit {
 
   registrationForm: FormGroup;
-  constructor() {
+
+  constructor(public employeeService: EmployeeService) {
+
+
     this.registrationForm = new FormGroup({
       document: new FormControl('', [
         Validators.required,
@@ -32,16 +36,17 @@ export class EmployeeRegistryComponent implements OnInit {
     })
   }
 
+  get form(): { [key: string]: AbstractControl; }
+  {
+    return this.registrationForm.controls;
+  }
+
   ngOnInit(): void {
   }
 
   onSubmit(){
-    console.log(this.registrationForm.value);
-  }
-
-  get form(): { [key: string]: AbstractControl; }
-  {
-    return this.registrationForm.controls;
+    this.employeeService.addEmployee(this.registrationForm.value);
+    return false;
   }
 
 }

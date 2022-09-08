@@ -15,13 +15,16 @@ import {RippleModule} from "primeng/ripple";
 import {TableModule} from "primeng/table";
 import {CalendarModule} from "primeng/calendar";
 import {ReactiveFormsModule} from "@angular/forms";
+import { EmployeeListComponent } from './employee-list/employee-list.component';
+import {EmployeeService} from "./employee.service";
 
 @NgModule({
   declarations: [
     AppComponent,
     EmployeeRegistryComponent,
     NavbarComponent,
-    EmployeeUpdateComponent
+    EmployeeUpdateComponent,
+    EmployeeListComponent
   ],
   imports: [
     BrowserModule,
@@ -37,7 +40,7 @@ import {ReactiveFormsModule} from "@angular/forms";
     ReactiveFormsModule
 
   ],
-  providers: [],
+  providers: [EmployeeService],
   bootstrap: [AppComponent]
 })
 export class AppModule {
