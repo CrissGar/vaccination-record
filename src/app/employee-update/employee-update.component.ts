@@ -2,7 +2,7 @@ import { Component, OnInit } from '@angular/core';
 import { FormControl, FormGroup} from "@angular/forms";
 import {EmployeeService} from "../employee.service";
 import {Employee} from "../employee.module";
-import {Router} from "@angular/router";
+import {ActivatedRoute, Params, Router} from "@angular/router";
 import {DatePipe} from "@angular/common";
 
 interface Status {
@@ -24,7 +24,8 @@ export class EmployeeUpdateComponent implements OnInit {
   selectedStatus: Status | undefined;
   validForm : boolean| undefined;
   pipe = new DatePipe('en-US');
-  constructor(public employeeService: EmployeeService, protected router:Router ) {
+  myParam: string | undefined;
+  constructor(public employeeService: EmployeeService, protected router:Router, private route: ActivatedRoute ) {
 
     this.employee = employeeService.employeeSelect;
     this.updateForm = new FormGroup({
@@ -46,10 +47,16 @@ export class EmployeeUpdateComponent implements OnInit {
 
 
   ngOnInit(): void {
-    if(this.employee !== undefined){
-      this.updateFormInformation(this.employee);
+    this.route.params.subscribe((params: Params) => this.myParam = params['document']);
+    if (this.myParam) {
+      this.employee = this.employeeService.findEmployee(Number(this.myParam));
+      if (this.employee) {
+        this.updateFormInformation(this.employee);
+      }else{
+      }
     }
   }
+
   onSubmit(){
     if (this.employee!) {
       this.updateEmployee(this.employee);
@@ -70,7 +77,6 @@ export class EmployeeUpdateComponent implements OnInit {
       vaccination: employee.vaccination,
     })
 
-    console.log('vaccination', this.updateForm.value)
   }
 
   updateEmployee(employee: Employee): void {

@@ -58,16 +58,15 @@ export class EmployeeService {
     }
   }
 
-  findEmployee(document: number) {
+  findEmployee(document: number): Employee | undefined {
     const employees = JSON.parse(localStorage.getItem('employees')!);
-    if(employees){
+    if (employees) {
       employees.forEach((element: Employee) => {
-        if(element.document === document){
+        if (element.document == document) {
           this.employeeSelect = element;
         }
       });
     }
-
     return this.employeeSelect;
   }
 

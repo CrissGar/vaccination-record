@@ -11,7 +11,7 @@ const routes: Routes = [
   {path: 'list', component: EmployeeListComponent},
   {path: 'registry', component: EmployeeRegistryComponent},
   {path: 'updateEmployeeAdmin/:document', component: EmployeeRegistryComponent},
-  {path: 'updateEmployeeEmployee', component: EmployeeUpdateComponent},
+  {path: 'updateEmployeeEmployee/:document', component: EmployeeUpdateComponent},
   {path: '**', redirectTo:'/registry'}
 ];
 

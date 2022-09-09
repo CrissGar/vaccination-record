@@ -41,14 +41,12 @@ export class HomeComponent implements OnInit {
         this.router.navigateByUrl('/list');
       }
       if (user && password) {
-        this.router.navigateByUrl('/updateEmployeeEmployee' );
-
-        console.log('document',user.document);
+        this.router.navigate(['/updateEmployeeEmployee', user.document]);
       }
     });
   }
 
-  findEmployee(document: number) {
+  findEmployee(document: number): Employee | undefined {
     const employees = JSON.parse(localStorage.getItem('employees')!);
     if(employees){
       employees.forEach((element: Employee) => {
