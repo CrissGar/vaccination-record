@@ -6,6 +6,6 @@ export interface Employee {
   birthDate?:Date;
   address?:string;
   numberPhone?:string;
-  statusVaccination?: string;
+  vaccination?: string;
 
 }

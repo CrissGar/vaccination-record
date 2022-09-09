@@ -5,7 +5,7 @@
   </div>
 
   <div class="container-form">
-
+    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
     <div class="grid container-principal-data">
       <div class="col-12 md:col-3 lg:col-3">
         <div class="grid">
@@ -13,7 +13,7 @@
             <label>Cédula:</label>
           </div>
           <div class="col-9">
-            <input >
+            <output formControlName="document" ngDefaultControl></output>
           </div>
         </div>
       </div>
@@ -23,7 +23,7 @@
             <label>Empleado:</label>
           </div>
           <div class="col-9">
-            <label>Nombre Apellido</label>
+            <output formControlName="names" ngDefaultControl></output> <output formControlName="lastnames" ngDefaultControl></output>
           </div>
         </div>
       </div>
@@ -33,13 +33,13 @@
             <label>Correo:</label>
           </div>
           <div class="col-9">
-            <label>nombre@gmail.com</label>
+            <output formControlName="email" ngDefaultControl></output>
           </div>
         </div>
       </div>
     </div>
 
-    <form [formGroup]="updateForm" (ngSubmit)="onSubmit()">
+
       <div class="grid container-additional-data">
         <div class="col-12 md:col-6 lg:col-6">
           <div class="grid">
@@ -78,17 +78,21 @@
               <label for="vaccination">Estado de vacunación:</label>
             </div>
             <div class="col-12">
-              <p-dropdown [style]="{'minWidth':'100%'}" id="vaccination" [options]="status" [(ngModel)]="selectedStatus"
-                          optionLabel="name" placeholder="Seleccione un estado..." [showClear]="true" formControlName="vaccination"></p-dropdown>
+              <p-dropdown [style]="{'minWidth':'100%'}" id="vaccination" [options]="status" [(ngModel)]="selectedStatus"  dataKey="value"
+                          optionLabel="name" optionValue="name" placeholder="Seleccione un estado..." [showClear]="true" formControlName="vaccination" ></p-dropdown>
             </div>
           </div>
         </div>
 
+        <div class="col-12 md:col-12 lg:col-12">
+          <app-vaccinations-registry [hidden]="validForm"></app-vaccinations-registry>
+        </div>
+
         <div class="col-6 md:col-2 lg:col-2">
-          <button class="btn btn-secondary">Regresar</button>
+          <button class="btn btn-secondary" (click)="cleanEmployee()">Regresar</button>
         </div>
         <div class="col-6 md:col-2 lg:col-2">
-          <button type="submit" class="btn btn-warning">Actualizar</button>
+          <button type="submit" class="btn btn-warning">Guardar</button>
         </div>
       </div>
     </form>

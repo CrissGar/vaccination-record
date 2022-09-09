@@ -8,7 +8,7 @@ const routes: Routes = [
   {path: '', pathMatch: 'full', redirectTo: '/list'},
   {path: 'list', component: EmployeeListComponent},
   {path: 'registry', component: EmployeeRegistryComponent},
-  {path: 'updateEmployeeAdmin/:document', component: EmployeeRegistryComponent},
+  {path: 'updateEmployeeAdmin/:document', component: EmployeeUpdateComponent},
   {path: 'updateEmployeeEmployee', component: EmployeeUpdateComponent},
   {path: '**', redirectTo:'/registry'}
 ];

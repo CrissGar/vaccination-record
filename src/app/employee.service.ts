@@ -21,11 +21,16 @@ export class EmployeeService {
 
     const employeeFind = this.findEmployee(employee.document!);
     if (employeeFind) {
+
       employees.forEach(employeeItem =>  {
         if(employeeFind.document === employeeItem.document){
           employeeItem.names = employee.names
           employeeItem.lastnames = employee.lastnames
           employeeItem.email = employee.email
+          employeeItem.birthDate = employee.birthDate
+          employeeItem.address = employee.address
+          employeeItem.numberPhone = employee.numberPhone
+          employeeItem.vaccination = employee.vaccination
         }
       });
     } else {
@@ -55,11 +60,14 @@ export class EmployeeService {
 
   findEmployee(document: number) {
     const employees = JSON.parse(localStorage.getItem('employees')!);
-    employees.forEach((element: Employee) => {
-      if(element.document === document){
-        this.employeeSelect = element;
-      }
-    });
+    if(employees){
+      employees.forEach((element: Employee) => {
+        if(element.document === document){
+          this.employeeSelect = element;
+        }
+      });
+    }
+
     return this.employeeSelect;
   }
 

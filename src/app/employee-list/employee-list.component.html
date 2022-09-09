@@ -9,6 +9,7 @@
         <th>Nombres</th>
         <th>Apellidos</th>
         <th>Correo electrónico</th>
+        <th>Vacunación</th>
         <th></th>
       </tr>
     </ng-template>
@@ -18,6 +19,7 @@
         <td>{{employee.names}}</td>
         <td>{{employee.lastnames}}</td>
         <td>{{employee.email}}</td>
+        <td>{{employee.vaccination}}</td>
         <td>
           <button class="btn btn-success mx-3" (click)="updateEmployee(employee.document)" [routerLink]="['/updateEmployeeAdmin', employee.document]">Editar</button>
 

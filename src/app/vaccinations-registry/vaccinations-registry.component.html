@@ -3,7 +3,7 @@
     <p>Datos de vacunación</p>
   </div>
   <div class="col-12 md:col-6 lg:col-6">
-    <form>
+    <form [formGroup]="vaccinationForm" (ngSubmit)="onSubmit()">
     <div class="grid">
       <div class="col-4">
         <label>Tipo de vacuna:</label>
@@ -11,7 +11,7 @@
       <div class="col-8">
         <p-dropdown [style]="{'minWidth':'100%'}" id="" [options]="vaccinations"
                     [(ngModel)]="selectedVaccinations" optionLabel="name" placeholder="Seleccione un tipo..."
-                    [showClear]="true"></p-dropdown>
+                    [showClear]="true" formControlName="type"></p-dropdown>
       </div>
     </div>
     <div class="grid">
@@ -20,7 +20,7 @@
       </div>
       <div class="col-8">
         <p-calendar [style]="{'minWidth':'100%'}" inputId="icon"
-                    placeholder="Ingrese su fecha de vacunación"></p-calendar>
+                    placeholder="Ingrese su fecha de vacunación" formControlName="date"></p-calendar>
       </div>
     </div>
     <div class="grid">
@@ -28,7 +28,7 @@
         <label>Número de dosis:</label>
       </div>
       <div class="col-8">
-        <input [style]="{'minWidth':'100%'}" id="nro" type="number" pInputText placeholder="Ingrese el número de dosis">
+        <input [style]="{'minWidth':'100%'}" id="nro" type="number" pInputText placeholder="Ingrese el número de dosis" formControlName="numberDoses">
       </div>
     </div>
     <div class="col-12 container-button">
