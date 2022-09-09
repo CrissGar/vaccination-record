@@ -1,0 +1,26 @@
+.container-vaccination-data{
+  width: 100%;
+  margin-left: 0.1rem;
+  background-color: #C2F0ED;
+  border-radius: 1rem;
+}
+
+p{
+  margin-top: 0;
+  margin-bottom: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: bold;
+  font-size: 1.3rem;
+}
+
+label{
+  padding-left: 1rem;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+  font-weight: bold;
+  font-size: 0.9999rem;
+}
+
+.container-button{
+  display: flex;
+  justify-content: flex-end;
+}

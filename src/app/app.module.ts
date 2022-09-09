@@ -17,6 +17,7 @@ import {CalendarModule} from "primeng/calendar";
 import {ReactiveFormsModule} from "@angular/forms";
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import {EmployeeService} from "./employee.service";
+import {VaccinationsRegistryComponent} from "./vaccinations-registry/vaccinations-registry.component";
 
 @NgModule({
   declarations: [
@@ -24,7 +25,8 @@ import {EmployeeService} from "./employee.service";
     EmployeeRegistryComponent,
     NavbarComponent,
     EmployeeUpdateComponent,
-    EmployeeListComponent
+    EmployeeListComponent,
+    VaccinationsRegistryComponent,
   ],
   imports: [
     BrowserModule,

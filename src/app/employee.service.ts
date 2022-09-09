@@ -6,7 +6,7 @@ import {Employee} from "./employee.module";
 })
 export class EmployeeService {
   arrEmployee: Employee[];
-  employeeSelect: Employee[] | undefined;
+  employeeSelect: Employee | undefined;
 
   constructor() {
     this.arrEmployee = [];
@@ -18,7 +18,19 @@ export class EmployeeService {
     if (employeeList !== null) {
       employees = JSON.parse(employeeList);
     }
-    employees.push(employee);
+
+    const employeeFind = this.findEmployee(employee.document!);
+    if (employeeFind) {
+      employees.forEach(employeeItem =>  {
+        if(employeeFind.document === employeeItem.document){
+          employeeItem.names = employee.names
+          employeeItem.lastnames = employee.lastnames
+          employeeItem.email = employee.email
+        }
+      });
+    } else {
+      employees.push(employee);
+    }
     localStorage.setItem('employees', JSON.stringify(employees));
   }
 
@@ -41,14 +53,14 @@ export class EmployeeService {
     }
   }
 
-  updateEmployee(employee: Employee) {
+  findEmployee(document: number) {
     const employees = JSON.parse(localStorage.getItem('employees')!);
-    if (employee.document != null) {
-      this.employeeSelect = employees.find(
-        (item: { document: number }) => item.document === employee.document
-      );
-    }
-
+    employees.forEach((element: Employee) => {
+      if(element.document === document){
+        this.employeeSelect = element;
+      }
+    });
+    return this.employeeSelect;
   }
 
 }

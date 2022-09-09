@@ -19,7 +19,7 @@
         <td>{{employee.lastnames}}</td>
         <td>{{employee.email}}</td>
         <td>
-          <button class="btn btn-success mx-3" (click)="updateEmployee(employee)" [routerLink]="['/updateEmployeeAdmin', employee.document]">Editar</button>
+          <button class="btn btn-success mx-3" (click)="updateEmployee(employee.document)" [routerLink]="['/updateEmployeeAdmin', employee.document]">Editar</button>
 
           <button class="btn btn-danger" (click)="deleteEmployee(employee)">Eliminar</button>
         </td>

@@ -20,8 +20,8 @@ export class EmployeeListComponent implements OnInit {
     this.employees = this.employeeService.getEmployee();
   }
 
-  updateEmployee(employee: Employee){
-   this.employeeService.updateEmployee(employee);
+  updateEmployee(document: number) {
+    this.employeeService.findEmployee(document);
     this.employees = this.employeeService.getEmployee();
   }
 

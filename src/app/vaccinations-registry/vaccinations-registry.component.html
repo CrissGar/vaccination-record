@@ -1,0 +1,57 @@
+<div class="grid container-vaccination-data">
+  <div class="col-12 md:col-12 lg:col-12">
+    <p>Datos de vacunación</p>
+  </div>
+  <div class="col-12 md:col-6 lg:col-6">
+    <form>
+    <div class="grid">
+      <div class="col-4">
+        <label>Tipo de vacuna:</label>
+      </div>
+      <div class="col-8">
+        <p-dropdown [style]="{'minWidth':'100%'}" id="" [options]="vaccinations"
+                    [(ngModel)]="selectedVaccinations" optionLabel="name" placeholder="Seleccione un tipo..."
+                    [showClear]="true"></p-dropdown>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-4">
+        <label>Fecha de vacunación:</label>
+      </div>
+      <div class="col-8">
+        <p-calendar [style]="{'minWidth':'100%'}" inputId="icon"
+                    placeholder="Ingrese su fecha de vacunación"></p-calendar>
+      </div>
+    </div>
+    <div class="grid">
+      <div class="col-4">
+        <label>Número de dosis:</label>
+      </div>
+      <div class="col-8">
+        <input [style]="{'minWidth':'100%'}" id="nro" type="number" pInputText placeholder="Ingrese el número de dosis">
+      </div>
+    </div>
+    <div class="col-12 container-button">
+      <button type="submit" class="btn btn-info" >Registrar</button>
+    </div>
+    </form>
+  </div>
+  <div class="col-12 md:col-6 lg:col-6">
+    <p-table responsiveLayout="scroll">
+      <ng-template pTemplate="header">
+        <tr>
+          <th>Tipo de vacuna</th>
+          <th>Fecha de vacunación</th>
+          <th>Número de dosis</th>
+        </tr>
+      </ng-template>
+      <ng-template pTemplate="body">
+        <tr>
+          <td></td>
+          <td></td>
+          <td></td>
+        </tr>
+      </ng-template>
+    </p-table>
+  </div>
+</div>
