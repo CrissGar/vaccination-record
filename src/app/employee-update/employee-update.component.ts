@@ -83,7 +83,7 @@ export class EmployeeUpdateComponent implements OnInit {
 
   cleanEmployee(): void {
     this.employeeService.employeeSelect = undefined;
-    this.router.navigateByUrl('/list');
+    this.router.navigateByUrl('/home');
   }
 
   validVaccination(): boolean{

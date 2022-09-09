@@ -1,18 +1,23 @@
 <div class="login">
   <form class="custom-form" method="post">
     <h1>Acceso</h1>
+    <form  [formGroup]="userForm" (ngSubmit)="login()">
     <input
-      type="email"
-      name="email"
-      placeholder="Email"
-      required="required"
+      id="user"
+      type="text"
+      name="user"
+      placeholder="Ingrese su usuario"
+      formControlName="user"
     />
     <input
+      id="password"
       type="password"
       name="password"
-      placeholder="Password"
-      required="required"
+      placeholder="Ingrese su contraseña"
+      formControlName="password"
     />
-    <button type="submit" >Ingresar</button>
+      <button type="submit"  class="btn btn-warning">Ingresar</button>
+    </form>
+
   </form>
 </div>

@@ -3,6 +3,7 @@ import {AbstractControl, FormControl, FormGroup, Validators} from "@angular/form
 import {EmployeeService} from "../employee.service";
 import {Employee} from "../employee.module";
 import {Router} from "@angular/router";
+import {User} from "../user.module";
 
 @Component({
   selector: 'app-employee-registry',
@@ -12,10 +13,10 @@ import {Router} from "@angular/router";
 export class EmployeeRegistryComponent implements OnInit {
   employee: Employee | undefined;
   registrationForm: FormGroup;
-
+  user: User | undefined ;
   constructor(public employeeService: EmployeeService, protected router:Router) {
-    this.employee = employeeService.employeeSelect;
 
+    this.employee = employeeService.employeeSelect;
     this.registrationForm = new FormGroup({
       document: new FormControl('', [
         Validators.required,
