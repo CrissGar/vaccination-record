@@ -18,6 +18,7 @@ import {ReactiveFormsModule} from "@angular/forms";
 import { EmployeeListComponent } from './employee-list/employee-list.component';
 import {EmployeeService} from "./employee.service";
 import {VaccinationsRegistryComponent} from "./vaccinations-registry/vaccinations-registry.component";
+import {HomeComponent} from "./home/home.component";
 
 @NgModule({
   declarations: [
@@ -27,6 +28,7 @@ import {VaccinationsRegistryComponent} from "./vaccinations-registry/vaccination
     EmployeeUpdateComponent,
     EmployeeListComponent,
     VaccinationsRegistryComponent,
+    HomeComponent
   ],
   imports: [
     BrowserModule,
